@@ -1,0 +1,65 @@
+Policy Comparisons
+Identifier,Type,Name,FilePath,Headers,Parameters
+Horizon,,,,,288
+Node,Exogenous Crossing State HSMM,E,Test_Wind_4.csv,dummy; Actual; Fcst,1;1;4000; 3; 5
+Node,Exogenous Crossing State HSMM Prices,G,TestElectricityPrices.csv,dummy; Price; dummy; Temp,"1;1;'ObsMax';[0,0.75,1.0];[0,0.3,0.8,1.0];4;5"
+Node,Basic Resource Node,R_1,,,1;10000; 2000;1; 1
+Node,Exogenous Deterministic Node,L,TestElectricityPrices.csv,dummy; dummy; Data; dummy,1;1;5000
+New Forecast,,E,Test_Wind_4.csv,dummy; dummy; Fcst,
+decision,,G:R_1,,,
+decision,,G:L,,,
+decision,,R_1:L,,,
+decision,,E:R_1,,,
+decision,,E:L,,,
+Constraints_and_Rewards,Example Constraints and Rewards,,,,
+Action Space,Example Decision Space,,,,
+Policy,PFA,PFA_1,,,15;20
+Policy,PFA,PFA_2,,,15;18
+Policy,CFA,CFA_1,,,1
+Policy,DLA,DLA_2,,,2
+Module,Policy Compare,,Pol_Compare,,"5;['E','R_1','L','G'];[1,0,0,0];['G:R_1','G:L','R_1:L','E:R_1','E:L'];[0,0,0,0,0]"
+End Input Parameters
+DLA_2:-19099.6642625
+PFA_2:-18445.7735875
+PFA_1:-18544.7735875
+CFA_1:-19415.7735875
+DLA_2:-19001.8139375
+PFA_2:-18203.58795
+PFA_1:-18193.58795
+CFA_1:-19099.58795
+DLA_2:-17918.2027
+PFA_2:-17121.264975
+PFA_1:-17177.264975
+CFA_1:-17891.981975
+DLA_2:-16347.1019625
+PFA_2:-15040.831525
+PFA_1:-15058.831525
+CFA_1:-16504.831525
+DLA_2:-17005.4041125
+PFA_2:-16606.1010125
+PFA_1:-16684.1010125
+CFA_1:-17190.7510125
+-19099.6642625
+-19001.8139375
+-17918.2027
+-16347.1019625
+-17005.4041125
+Policy: DLA_2; Trials: 5; Avg. Value: -17874.437395; Std. Dev.: 1082.77851076; Offline Time: 2.14576721191e-06 sec; Avg. Online Time per Decision: 0.00672908524672 sec 
+-18445.7735875
+-18203.58795
+-17121.264975
+-15040.831525
+-16606.1010125
+Policy: PFA_2; Trials: 5; Avg. Value: -17083.51181; Std. Dev.: 1225.74196531; Offline Time: 1.90734863281e-06 sec; Avg. Online Time per Decision: 2.91769703229e-05 sec 
+-18544.7735875
+-18193.58795
+-17177.264975
+-15058.831525
+-16684.1010125
+Policy: PFA_1; Trials: 5; Avg. Value: -17131.71181; Std. Dev.: 1234.79453486; Offline Time: 9.53674316406e-07 sec; Avg. Online Time per Decision: 2.42221686575e-05 sec 
+-19415.7735875
+-19099.58795
+-17891.981975
+-16504.831525
+-17190.7510125
+Policy: CFA_1; Trials: 5; Avg. Value: -18020.58521; Std. Dev.: 1105.75497671; Offline Time: 4.05311584473e-06 sec; Avg. Online Time per Decision: 0.0326909556985 sec 

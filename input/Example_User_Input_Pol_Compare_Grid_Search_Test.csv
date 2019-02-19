@@ -1,0 +1,19 @@
+Identifier,Type,Name,FilePath,Headers,Parameters
+Horizon,,,,,288
+Node,Exogenous Crossing State HSMM,E,Test_Wind_4.csv,dummy; Actual; Fcst,1;1;4000; 3; 5
+Node,Exogenous Crossing State HSMM Prices,G,TestElectricityPrices.csv,dummy; Price; dummy; Temp,"1;1;'ObsMax';[0,0.75,1.0];[0,0.3,0.8,1.0];4;5"
+Node,Basic Resource Node,R_1,,,1;10000; 2000;1; 1 
+Node,Exogenous Deterministic Node,L,TestElectricityPrices.csv,dummy; dummy; Data; dummy,1;1;5000
+New Forecast,,E,Test_Wind_4.csv,dummy; dummy; Fcst,
+decision,,G:R_1,,,
+decision,,G:L,,,
+decision,,R_1:L,,,
+decision,,E:R_1,,,
+decision,,E:L,,,
+Constraints_and_Rewards,Example Constraints and Rewards,,,,
+Action Space,Example Decision Space,,,,
+Policy,PFA,PFA_1,,,15;20
+Policy,PFA,PFA_2,,,15;18
+Policy,CFA,CFA_1,,,1
+Policy,DLA,DLA_2,,,48
+Module,Grid Search,,Grid Search,,"5;'CFA_1';[[-10,10]];[21]"

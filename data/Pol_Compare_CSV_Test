@@ -1,0 +1,29 @@
+Policy Comparisons
+Identifier,Type,Name,FilePath,Headers,Parameters
+Horizon,,,,,288
+Node,Exogenous Crossing State HSMM,E,Test_Wind_4.csv,dummy; Actual; Fcst,1;1;4000; 3; 5
+Node,Exogenous Deterministic Node,G,DeterministicPricesColumns.csv,Columns,1;1;'ObsMax'
+Node,Basic Resource Node,R_1,,,1;10000; 2000;1; 1
+Node,Exogenous Deterministic Node,L,TestElectricityPrices.csv,dummy; dummy; Data; dummy,1;1;5000
+New Forecast,,E,Test_Wind_4.csv,dummy; dummy; Fcst,
+decision,,G:R_1,,,
+decision,,G:L,,,
+decision,,R_1:L,,,
+decision,,E:R_1,,,
+decision,,E:L,,,
+Constraints_and_Rewards,Example Constraints and Rewards,,,,
+Action Space,Example Decision Space,,,,
+Policy,PFA,PFA_1,,,15;50
+Policy,PFA,PFA_2,,,15;18
+Module,Policy Compare,,Pol_Compare_CSV_Test,,"2;['E','R_1','L','G'];[1,0,0,1];['G:R_1','G:L','R_1:L','E:R_1','E:L'];[0,0,0,0,0]"
+End Input Parameters
+PFA_2:-10815.4124064
+PFA_1:-11047.2284064
+PFA_2:-8848.895725
+PFA_1:-9124.895725
+-10815.4124064
+-8848.895725
+Policy: PFA_2; Trials: 2; Avg. Value: -9832.15406569; Std. Dev.: 983.258340681; Offline Time: 2.14576721191e-06 sec; Avg. Online Time per Decision: 2.02366047435e-05 sec 
+-11047.2284064
+-9124.895725
+Policy: PFA_1; Trials: 2; Avg. Value: -10086.0620657; Std. Dev.: 961.166340681; Offline Time: 9.53674316406e-07 sec; Avg. Online Time per Decision: 1.67191028595e-05 sec 

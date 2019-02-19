@@ -1,0 +1,26 @@
+Approximate Policy Iteration with Linear Regression for Post Decision States
+Identifier,Type,Name,FilePath,Headers,Parameters
+Horizon,,,,,4
+Discount Factor,,,,,1
+Node,Exogenous Crossing State HSMM,E,Test_Wind_4.csv,dummy; Actual; Fcst,10;1;4000; 3; 3
+Node,Exogenous Crossing State HSMM Prices,G,TestElectricityPrices.csv,dummy; Price; dummy; Temp,"1;1;'ObsMax';[0,0.75,1.0];[0,0.3,0.8,1.0];4;5"
+Node,Basic Resource Node,R_1,,,2000;10000; 2000;1; 1
+Node,Exogenous Deterministic Node,L,TestElectricityPrices.csv,dummy; dummy; Data; dummy,1;1;5000
+New Forecast,,E,Test_Wind_4.csv,dummy; dummy; Fcst,
+decision,,G:R_1,,,10
+decision,,G:L,,,10
+decision,,R_1:L,,,10
+decision,,E:R_1,,,10
+decision,,E:L,,,10
+Action Space,Example Decision Space,,,,
+Constraints_and_Rewards,Example Constraints and Rewards,,,,
+Module,Forward ADP API,,fADP_Lin_VFA,,1000;5
+End Input Parameters
+Parameter Vector for time 3:
+[0.0,0.0,0.0,0.0]
+Parameter Vector for time 2:
+[0.0166346985417,0.00114707906616,-8.48105094174e-05,19.0786932663]
+Parameter Vector for time 1:
+[0.0332714558873,0.00200408347079,-0.000112428789478,36.7014269505]
+Parameter Vector for time 0:
+[0.0404548446341,0.00303335244635,-0.000170294358839,59.8313822205]

@@ -1,0 +1,22 @@
+Identifier,Type,Name,FilePath,Headers,Parameters
+Horizon,,,,,4
+Discount Factor,,,,,1
+Node,Exogenous Crossing State HSMM,E,Test_Wind_4.csv,dummy; Actual; Fcst,10;1;4000; 3; 3
+Node,Exogenous Crossing State HSMM Prices,G,TestElectricityPrices.csv,dummy; Price; dummy; Temp,"1;1;'ObsMax';[0,0.75,1.0];[0,0.3,0.8,1.0];4;5"
+Node,Basic Resource Node,R_1,,,2000;10000; 2000;1; 1 
+Node,Exogenous Deterministic Node,L,TestElectricityPrices.csv,dummy; dummy; Data; dummy,1;1;5000
+New Forecast,,E,Test_Wind_4.csv,dummy; dummy; Fcst,
+decision,,G:R_1,,,10
+decision,,G:L,,,10
+decision,,R_1:L,,,10
+decision,,E:R_1,,,10
+decision,,E:L,,,10
+Action Space,Example Decision Space,,,,
+Constraints_and_Rewards,Example Constraints and Rewards,,,,
+Policy,PFA,PFA_1,,,15;18
+Policy,PFA,PFA_2,,,15;20
+Policy,VFA_Post_Parametric,VFA_PostParAPI,fADP_Lin_VFA_4,,
+Policy,VFA_Post_Parametric,VFA_PostParbADP,bADP_Lin_VFA_Post,,
+Policy,VFA_Pre_Parametric,VFA_PrePar,bADP_Lin_VFA,,
+Policy,VFA_Post_Lookup,VFA_LU,bADP_LU_Table,,
+Module,Policy Compare,,Pol_Compare_2,,"5;['E','R_1','L','G'];[1,0,0,1];['G:R_1','G:L','R_1:L','E:R_1','E:L'];[0,0,0,0,0]"

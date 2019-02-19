@@ -1,0 +1,16 @@
+Identifier,Type,Name,FilePath,Headers,Parameters
+Horizon,,,,,4
+Discount Factor,,,,,1
+Node,Exogenous Crossing State HSMM,E,Test_Wind_4.csv,dummy; Actual; Fcst,10;1;4000; 3; 3
+Node,Exogenous Crossing State HSMM Prices,G,TestElectricityPrices.csv,dummy; Price; dummy; Temp,"1;1;'ObsMax';[0,0.75,1.0];[0,0.3,0.8,1.0];4;5"
+Node,Basic Resource Node,R_1,,,2000;10000; 2000;1; 1 
+Node,Exogenous Deterministic Node,L,TestElectricityPrices.csv,dummy; dummy; Data; dummy,1;1;5000
+New Forecast,,E,Test_Wind_4.csv,dummy; dummy; Fcst,
+decision,,G:R_1,,,10
+decision,,G:L,,,10
+decision,,R_1:L,,,10
+decision,,E:R_1,,,10
+decision,,E:L,,,10
+Action Space,Example Decision Space,,,,
+Constraints_and_Rewards,Example Constraints and Rewards,,,,
+Module,Backward ADP Post-Decision Linear Parametric,,bADP_Lin_VFA_Post,,1000
